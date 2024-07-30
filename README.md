@@ -1,5 +1,7 @@
 ## Automated Detection of Craters and Boulders in OHRC Images
 
+### Author: *Adarsh Kumar Verma*
+
 ### Objective
 The main objective is to automatically detect craters and boulders in Orbiter High Resolution Camera (OHRC) images using advanced AI/ML techniques.
 
