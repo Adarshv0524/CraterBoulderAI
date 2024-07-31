@@ -113,9 +113,3 @@ This approach provides a powerful tool for automated planetary surface analysis,
 
 
 
-@article{Planets and Moons Dataset - AI in Space 🌌 🛰 ☄ 🔭,
-  title={Planets and Moons Dataset - AI in Space 🌌 🛰 ☄ 🔭 : A public dataset for large-scale multi-label and multi-class image classification},
-  author={Emirhan BULUT},
-  journal={Dataset available from https://github.com/emirhanai/Planets-and-Moons-Dataset-AI-in-Space and https://www.kaggle.com/datasets/emirhanai/planets-and-moons-dataset-ai-in-space},
-  year={2022}
-}
