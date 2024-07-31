@@ -88,6 +88,6 @@ def image_segmentation(input_folder, output_folder):
 
 
 if __name__ == "__main__":
-    advanced_noise_reduction('data/raw', 'data/processed/denoised')
-    contrast_enhancement('data/processed/denoised', 'data/processed/contrast_enhanced')
-    image_segmentation('data/processed/contrast_enhanced', 'data/processed/segmented')
+    advanced_noise_reduction('../data/raw', '../data/processed/denoised')
+    contrast_enhancement('../data/processed/denoised', '../data/processed/contrast_enhanced')
+    image_segmentation('../data/processed/contrast_enhanced', '../data/processed/segmented')
