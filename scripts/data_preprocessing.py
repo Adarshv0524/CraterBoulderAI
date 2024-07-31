@@ -46,5 +46,48 @@ def advanced_noise_reduction(input_folder, output_folder):
             
             print(f"Processed: {filename}")
 
+def contrast_enhancement(input_folder, output_folder):
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+    
+    for filename in os.listdir(input_folder):
+        if filename.endswith(".jpg") or filename.endswith(".png"):
+            image_path = os.path.join(input_folder, filename)
+            image = cv2.imread(image_path)
+            # Convert to YUV color space
+            yuv_image = cv2.cvtColor(image, cv2.COLOR_BGR2YUV)
+            # Enhance the Y channel (luminance)
+            yuv_image[:,:,0] = cv2.equalizeHist(yuv_image[:,:,0])
+            # Convert back to BGR color space
+            enhanced_image = cv2.cvtColor(yuv_image, cv2.COLOR_YUV2BGR)
+            # Save the enhanced image
+            output_path = os.path.join(output_folder, filename)
+            cv2.imwrite(output_path, enhanced_image)
+
+
+
+# data_preprocessing.py
+
+def image_segmentation(input_folder, output_folder):
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+    
+    for filename in os.listdir(input_folder):
+        if filename.endswith(".jpg") or filename.endswith(".png"):
+            image_path = os.path.join(input_folder, filename)
+            image = cv2.imread(image_path)
+            # Convert to grayscale
+            gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+            # Apply thresholding to segment features
+            _, segmented_image = cv2.threshold(gray_image, 127, 255, cv2.THRESH_BINARY)
+            # Save the segmented image
+            output_path = os.path.join(output_folder, filename)
+            cv2.imwrite(output_path, segmented_image)
+
+
+
+
 if __name__ == "__main__":
     advanced_noise_reduction('data/raw', 'data/processed/denoised')
+    contrast_enhancement('data/processed/denoised', 'data/processed/contrast_enhanced')
+    image_segmentation('data/processed/contrast_enhanced', 'data/processed/segmented')
