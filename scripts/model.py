@@ -27,6 +27,7 @@ def create_cnn_model(input_shape, num_classes):
                   metrics=['accuracy'])
     return model
 
+
 if __name__ == "__main__":
     # Example usage
     model = create_cnn_model((128, 128, 3), 2)
